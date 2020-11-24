@@ -1,44 +1,11 @@
-<!-- <div class='header'>
-    <h1>Dados Cadastrais</h1>
-</div> -->
-
-
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">Gerenciamento de usuários</li>
+      <li class="header" aria-current="page">Gerenciamento de usuários</li>
     </ol>
   </nav>
   <div class="container">
     <div class="card list-car">
-      <h5 class="card-header">Lista de usuários</h5>
-      <div class="card-body">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
-                <th scope="col">Booleana</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let users of users">
-                <td>{{users.id}}</td>
-                <td>{{users.first_name}}</td>
-                <td>{{users.last_name}}</td>
-                <td>{{users.active}}</td>
-                <td>
-                  <button type="button" class="btn btn-warning btn-sm" (click)="editUser(users)">Editar</button>
-                  <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteUser(users)">Deletar</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
-    </div>
-  
-    <div class="card add-car">
+      <div class="card add-car">
         <h5 class="card-header">Adicionar/Atualizar usuário</h5>
         <div class="card-body">
             <form id="add-form" (ngSubmit)="f.form.valid && saveUser(f)" #f="ngForm" novalidate>
@@ -51,23 +18,57 @@
               </div>
               <div class="form-group">
                   <label for="color">Sobrenome</label>
-                  <input type="text" [(ngModel)]="user.last_name" id="color" name="sobrenome" #color="ngModel" required class="form-control" placeholder="Digite a cor">
+                  <input type="text" [(ngModel)]="user.last_name" id="sobrenome" name="sobrenome" #sobrenome="ngModel" required class="form-control" placeholder="Digiteo sobrenome completo">
                   <!-- <div *ngIf="f.submitted && color.invalid" class="invalid-feedback">
                       <div *ngIf="color.errors.required">Cor é obrigatória</div>
                   </div> -->
               </div>
               <div class="form-group">
-                  <label for="price">Booleana</label>
-                  <input type="number" [(ngModel)]="user.active" id="price" name="price" #price="ngModel" required class="form-control" placeholder="Digite o preço">
+                  <label for="price">Email</label>
+                  <input type="text" [(ngModel)]="user.email" id="email" name="email" #email="ngModel" required class="form-control" placeholder="E-mail">
                   <!-- <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
                       <div *ngIf="price.errors.required">Preço é obrigatório</div>
                   </div> -->
               </div>
-              <button type="submit" class="btn btn-primary btn-add-car" (click)="saveUser(f)">Salvar</button>
+              <button type="submit" class="btn btn-primary btn-add-car" (click)="saveUser(f)" style="margin-right: 15px;">Salvar</button>
               <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
             </form>
         </div>
       </div>
+
+
+      <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Status</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Ações</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let users of users">
+                <td><div [ngClass]="users.active? 'dotgreen' : 'dotred'"></div></td>
+                <td>{{users.first_name}}</td>
+                <td>{{users.last_name}}</td>
+                <td>{{users.gender=="Female"? 'F': 'M'}}</td>
+                <td>{{users.email}}</td>
+                
+
+                <td>
+                  <button type="button" class="btn btn-primary btn-add-car" (click)="editUser(users)"style="margin-right: 15px;" >Editar</button>
+                  <button type="button" class="btn btn-secondary btn-add-car" (click)="deleteUser(users)">Deletar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+      </div>
+    </div>
   </div>
 
   

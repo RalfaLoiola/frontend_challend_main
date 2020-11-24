@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Users } from '../Models/Users.model';
+import {Component, Inject, OnInit} from '@angular/core';
 import { DadosCadastraisService } from '../services/dados-cadastrais.service';
+// import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+// import {MatExpansionModule} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-dados-cadastrais',
   templateUrl: './dados-cadastrais.component.html',
   styleUrls: ['./dados-cadastrais.component.css']
 })
+
 export class DadosCadastraisComponent implements OnInit {
 
   user = {} as Users;
   users: Users[];
+  panelOpenState = false;
 
   constructor(private dadosCadastraisService: DadosCadastraisService) { }
 
@@ -58,7 +62,4 @@ export class DadosCadastraisComponent implements OnInit {
         this.getUsers();
       });
     }
-
-
-
 }
