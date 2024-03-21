@@ -23,7 +23,7 @@ export class DadosCadastraisComponent implements OnInit {
     this.getUsers();
   }
 
-    // Chama o serviço para obtém todos os usuários
+    // Chama o serviço para obter todos os usuários
     getUsers() {
       this.dadosCadastraisService.getUsers().subscribe((users: Users[]) => {
         this.users = users ;
