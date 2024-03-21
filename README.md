@@ -1,4 +1,4 @@
-Nome do Projeto
+Nome do Projeto: CADASTRO 
 Formulário de cadastro de usuário e backlog do mesmo
 
 Instalação
@@ -12,4 +12,5 @@ Inicie o servidor local: ng serve
 Navegue até http://localhost:3000/ no seu navegador
 
 Nome: Rafaela Loiola de Oliveira
+
 Email: rafaela.loiola1@gmail.com
