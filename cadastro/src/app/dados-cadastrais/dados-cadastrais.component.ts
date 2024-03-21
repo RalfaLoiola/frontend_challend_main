@@ -32,7 +32,7 @@ export class DadosCadastraisComponent implements OnInit {
       });
     }
 
-    // defini se um usuátio será criado ou atualizado
+    // define se um usuátio será criado ou atualizado
     saveUser(form: NgForm) {
       if (this.user.id !== undefined) {
         this.dadosCadastraisService.updateUser(this.user).subscribe(() => {
